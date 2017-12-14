@@ -44,9 +44,15 @@
         <?php if (!empty($room->showtimes)): ?>
         <table cellpadding="0" cellspacing="0">
             <tr>
-                <th scope="col"><?= __('Id') ?></th>
-                <th scope="col"><?= __('Movie Id') ?></th>
-                <th scope="col"><?= __('Room Id') ?></th>
+                <th scope="col"><?= __('I
+                
+                
+                
+                
+                
+                d') ?></th>
+                <th scope="col"><?= __('Movie_id') ?></th>
+                <th scope="col"><?= __('Room_id') ?></th>
                 <th scope="col"><?= __('Start') ?></th>
                 <th scope="col"><?= __('End') ?></th>
                 <th scope="col"><?= __('Created') ?></th>

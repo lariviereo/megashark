@@ -35,8 +35,8 @@ class MoviesController extends AppController
      */
     public function view($id = null)
     {
-        $movie = $this->Movies->get($id, [
-            'contain' => ['Showtimes']
+        $movie = $this->Movies->get($id ,[
+        'contain' => ['Showtimes']
         ]);
 
         $this->set('movie', $movie);
