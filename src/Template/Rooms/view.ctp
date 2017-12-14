@@ -39,43 +39,49 @@
             <td><?= h($room->modified) ?></td>
         </tr>
     </table>
-    <div class="related">
-        <h4><?= __('Related Showtimes') ?></h4>
-        <?php if (!empty($room->showtimes)): ?>
-        <table cellpadding="0" cellspacing="0">
-            <tr>
-                <th scope="col"><?= __('I
-                
-                
-                
-                
-                
-                d') ?></th>
-                <th scope="col"><?= __('Movie_id') ?></th>
-                <th scope="col"><?= __('Room_id') ?></th>
-                <th scope="col"><?= __('Start') ?></th>
-                <th scope="col"><?= __('End') ?></th>
-                <th scope="col"><?= __('Created') ?></th>
-                <th scope="col"><?= __('Modified') ?></th>
-                <th scope="col" class="actions"><?= __('Actions') ?></th>
-            </tr>
-            <?php foreach ($room->showtimes as $showtimes): ?>
-            <tr>
-                <td><?= h($showtimes->id) ?></td>
-                <td><?= h($showtimes->movie_id) ?></td>
-                <td><?= h($showtimes->room_id) ?></td>
-                <td><?= h($showtimes->start) ?></td>
-                <td><?= h($showtimes->end) ?></td>
-                <td><?= h($showtimes->created) ?></td>
-                <td><?= h($showtimes->modified) ?></td>
-                <td class="actions">
-                    <?= $this->Html->link(__('View'), ['controller' => 'Showtimes', 'action' => 'view', $showtimes->id]) ?>
-                    <?= $this->Html->link(__('Edit'), ['controller' => 'Showtimes', 'action' => 'edit', $showtimes->id]) ?>
-                    <?= $this->Form->postLink(__('Delete'), ['controller' => 'Showtimes', 'action' => 'delete', $showtimes->id], ['confirm' => __('Are you sure you want to delete # {0}?', $showtimes->id)]) ?>
-                </td>
-            </tr>
-            <?php endforeach; ?>
-        </table>
-        <?php endif; ?>
-    </div>
+</div>
+<div class="room view large-9 medium-8 columns content">
+    <h3>Planning de la salle</h3>
+    <table class="horizontal-table">
+        <tr>
+            <td>Lundi</td>
+            <td>Mardi</td>
+            <td>Mercredi</td>
+            <td>Jeudi</td>
+            <td>Vendredi</td>
+            <td>Samedi</td>
+            <td>Dimanche</td>
+        </tr>
+        <tr>
+        <?php for ($i=1;$i<7;$i++): ?>
+            <td><?php
+                    if(isset($collection[$i])){
+                        foreach($collection[$i]as $key=>$showtime){
+                            echo($showtime->movie->name.' ');
+                            echo($showtime->start->format('H:i').' ');
+                            echo('-'.$showtime->end->format('h:i').' ');
+                        }
+                    }
+                ?>
+            </td>
+        <?php endfor; ?>
+        </tr>
+    </table>
+</div>
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 </div>
